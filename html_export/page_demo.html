@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	  <meta charset="utf-8">
+	  <!-- <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script> -->
+	  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	  
+	  <script src="https://d3js.org/d3.v6.js"></script>
+	  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+	  <style>
+		.wrapper {display: flex;  overflow-anchor: none; scroll-behavior: smooth;}
+		.left {flex: 0 50%;}
+		.right {flex: 1;}
+		    
+		.listParam {height: 500px;  max-height: 500px;  }
+		/* overflow: hidden; overflow-y: scroll; */
+		
+		
+		.accordion > input[type="checkbox"] {
+		  position: absolute;
+		  left: -100vw;
+		}
+
+		.accordion .content {
+		  overflow-y: hidden;
+		  height: 0;
+		  transition: height 0.3s ease;
+		}
+
+		.accordion > input[type="checkbox"]:checked ~ .content {
+		  height: auto;
+		  overflow: visible;
+		}
+
+		.accordion label {
+		  display: block;
+		}
+
+		/*
+		 Styling
+		*/
+		body {
+		  font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+		  color: #333;
+		  font-weight: 300;
+		}
+
+		.accordion {
+		  margin-bottom: 0.5em;
+		}
+
+		.accordion > input[type="checkbox"]:checked ~ .content {
+		  padding: 5px;
+		  border: 1px solid #e8e8e8;
+		  border-top: 0;
+		}
+
+		.accordion .handle {
+		  margin: 0;
+		  font-size: 1.125em;
+		  line-height: 1.0em;
+		}
+
+		.accordion label {
+		  color: #333;
+		  cursor: pointer;
+		  font-weight: normal;
+		  padding: 5px;
+		  background: #e8e8e8;
+		}
+
+		.accordion label:hover,
+		.accordion label:focus {
+		  background: #d8d8d8;
+		}
+
+		.accordion .handle label:before {
+		  font-family: 'fontawesome';
+		  content: "\f054";
+		  display: inline-block;
+		  margin-right: 10px;
+		  font-size: .58em;
+		  line-height: 1.556em;
+		  vertical-align: middle;
+		}
+
+		.accordion > input[type="checkbox"]:checked ~ .handle label:before {
+		  content: "\f078";
+		}
+		
+	  </style>
+	</head>
+	 
+	<body>
+		<div id="widget_X" class='wrapper'>
+			<div id="figure_X" class='left'>
+				<!-- d3js figure will be here -->
+			</div>
+
+			<div id="parameters_X" class='right'>
+				<!-- parameter sliders will be there -->
+			<div>
+		</div>
+	</body> 
+</html>
+
+<!-- load javascript with the data and the type of plot here -->
+<script type="text/javascript" src="widget_demo_22.js" charset="utf-8"></script> <!-- the parameter data loaded in global variable parameter_data -->
+<script type="text/javascript" src="widget_plot_types.js" charset="utf-8"></script> <!-- the functions -->
+
+<script>
+<!-- call javascript functions to plot in the right div's -->
+	var context = {};
+	// assign variables later called by name to context object
+	context["parameter_data"] = parameter_data;
+	context["switch_parameter_data"] = switch_parameter_data;
+	context["algebraic_equation_f"] = algebraic_equation_f;
+	write_widget("figure_X", "parameters_X", 'parameter_data', 'switch_parameter_data', 'algebraic_equation_f', 'waterfall');
+</script>
