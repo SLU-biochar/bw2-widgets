@@ -2,7 +2,7 @@
 developmentNotebook.ipynb
 __pycache__/
 html_export/*.xlsx
-html_export/*.xlsx
+html_export/*.js
 !html_export/page_demo_waterfall.html
 !html_export/widget_demo_waterfall.js
 !html_export/widget_demo_waterfall_params.xlsx
