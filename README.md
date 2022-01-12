@@ -4,7 +4,8 @@
 
 The widgets are meant to provide interactive visualisation of LCA results and the influence of the parameters to stakeholders, but should not be used to 'perform' an LCA study.
 
-![Demo GIF](demo-gif-lq.gif)  
+![Demo GIF](demo-gif-lq.gif)
+
 
 ## Dependencies & assumptions on bw2 project
 
