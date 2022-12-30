@@ -1,3 +1,6 @@
+**License** [![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+
+
 # bw2-widget
 
  Convert a simple parametrized bw2 model to an interactive javascript widget, for simple inclusion in a website or visualisation in a standalone html file.
@@ -25,22 +28,38 @@ Available charts:
 
 ## Workflow
 
-### Step 1: export bw2 model to js file
+* Step 1. Build your LCA model with project-level parameters, as you would normally do
 
-### Step 2: visualise in html browser
+* Step 2. In the notebook CreateWidgets.ipynb, use the provided functions to “tag” activities in your LCA model for the contribution analysis.
 
-### a. Standalone html file
+* Step 3. In the notebook CreateWidgets.ipynb, use the provided functions to convert the LCA model into a set of algebraic equations & an set-up an Excel file for parameter ranges.
 
-### b. Inclusion in hugo website, via shortcode
+* Step 4. In the notebook CreateWidgets.ipynb, use the provided functions to generates the HTML and JS files. 
+
+* Step 5. Integrate to your website or share the widget with colleagues during project work.
 
 
-## Folder structure
+## Possible contributions
+- Inclusion in activity-browser
 
-
-## Contributions
 - new plot types, in d3js 
 - option for multiple impact categories
 - add sobol-simplified models
 - add parameter order (custom or by importance)
 - shift from .js file to a .json file export
 ...
+
+
+## LICENSE
+
+[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+
+This work is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+Attribution-ShareAlike 4.0 International
