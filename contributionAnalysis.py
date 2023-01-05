@@ -30,7 +30,7 @@ def getParamsFromSymbols(allSymbols):
     for bwParam in ProjectParameter.select():
         if bwParam.name in allSymbolsName:
             df = pd.DataFrame(bwParam.dict,index=[0])
-            ddf = ddf.append(df)
+            ddf = pd.concat([ddf, df]) #ddf.append(df)
     ddf.reset_index(inplace=True, drop=True)
     return ddf
 
@@ -52,22 +52,23 @@ def getSwitchParams(df, prefix, alternatives):
     Separate switch parameters based on list of prefix
     Reprocess them, and returns two dfs: conventional parameters, and switch parameters
     '''
-    df2 = df[df['name'].str.contains('|'.join(prefix))]
-    
-    df1 = df[~df['name'].str.contains('|'.join(prefix))]
-    
-    df1 = df1.append(pd.DataFrame({'name': prefix,
-                    'amount': [alternatives[xxx]['options'][0] for xxx in alternatives],
-                    'group': ['']*len(prefix),
-                    'label': ['']*len(prefix),
-                    'description':['Switch parameter for '+pref for pref in prefix],
-                    'uncertainty type':['switch']*len(prefix),
-                    'minimum': [0]*len(prefix),
-                    'maximum': [1]*len(prefix),
-                    'loc':['']*len(prefix),
-               }), ignore_index=True)
-    # in case there are nan or none in the python object, javascript would not like it, 
-    df1.fillna(value='', inplace=True)
+    if len(prefix)>0:
+        #df2 = df[df['name'].str.contains('|'.join(prefix))]
+        df1 = df[~df['name'].str.contains('|'.join(prefix))]
+        df1 = df1.append(pd.DataFrame({'name': prefix,
+                        'amount': [alternatives[xxx]['options'][0] for xxx in alternatives],
+                        'group': ['']*len(prefix),
+                        'label': ['']*len(prefix),
+                        'description':['Switch parameter for '+pref for pref in prefix],
+                        'uncertainty type':['switch']*len(prefix),
+                        'minimum': [0]*len(prefix),
+                        'maximum': [1]*len(prefix),
+                        'loc':['']*len(prefix),
+                }), ignore_index=True)
+        # in case there are nan or none in the python object, javascript would not like it, 
+        df1.fillna(value='', inplace=True)
+    else:
+        df1 = df
     return df1
 
 def write_widget(widget_filename, jsstr_param, jsstr_switchparam, jstr_paraminit, jstr_algeabraicfunc):
