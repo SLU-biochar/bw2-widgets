@@ -4,10 +4,6 @@ __pycache__/
 html_export/*.xlsx
 html_export/*.js
 !html_export/widget_plot_types.js
-html_export/page_demo_waterfall.html
-html_export/widget_demo_waterfall.js
-html_export/widget_demo_waterfall_params.xlsx
-html_export/widget_demo_waterfall_params_prettified.xlsx
-html_export/page_demo_stackedbar.html
-html_export/widget_biochar-supply-chain.js
-
+!html_export/widget_waterfall_demo4contest.js
+!html_export/widget_waterfall_demo4contest_params.xlsx
+!html_export/widget_waterfall_demo4contest_params_prettified.xlsx
