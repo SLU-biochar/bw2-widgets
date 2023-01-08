@@ -5,5 +5,5 @@ var switch_parameter_data = {};
 var p_a = 0.5; var p_b = 0.5; var p_be = 0.5; var p_cem = 0.5; var p_c = 0.5; var p_e = 0.5; var p_ee = 0.5; var p_f = 0.5; var p_d = 0.5; var p_el = 0.5; var p_al = 0.5; 
 // Algebraic function for updating figure 
 function algebraic_equation_f(){ 
- return [ {'Step Alpha': 0.875038764409103*p_a*p_cem, 'Step Beta': 7.1442004617004*p_al*(10*p_b + p_be), 'Step Gamma': 0.0415139702470529*p_a*p_c*p_el, 'All transport': 0.126959216200167*p_a*p_c*p_d + 0.126959216200167*p_a*p_e*p_ee + 0.126959216200167*p_f*(10*p_b + p_be), 'other': 0, 'group': 'FU'},  ];  
+ return [ {'Step Alpha': 10*p_a*p_cem, 'Step Beta': -10*p_al*(10*p_b + p_be), 'Step Gamma': 5*p_a*p_c*p_el, 'All transport': 3*p_a*p_c*p_d + 3*p_a*p_e*p_ee + 3*p_f*(10*p_b + p_be), 'other': 0, 'group': 'FU'},  ];  
 } 
